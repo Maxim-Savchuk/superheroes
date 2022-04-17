@@ -4,7 +4,7 @@ const app = require('../app');
 const { DB_HOST, PORT = 3001 } = process.env;
 
 mongoose
-  .connect(DB_HOST.toString())
+  .connect(DB_HOST, { useNewUrlParser: true })
   .then(() =>
     app.listen(PORT, () => {
       console.log(`Server running. Use our API on port: ${PORT}`);
