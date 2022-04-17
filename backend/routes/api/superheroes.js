@@ -6,6 +6,6 @@ const { superheroes: ctrl } = require('../../controllers');
 
 router.get('/', ctrlWrapper(ctrl.getAll));
 
-router.post('/');
+router.post('/', ctrlWrapper(ctrl.create));
 
 module.exports = router;
