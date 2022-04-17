@@ -1,3 +1,3 @@
-const {} = require('./superheroes');
+const { Superhero } = require('./superheroes');
 
-module.exports = {};
+module.exports = { Superhero };
