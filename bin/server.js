@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 const app = require('../app');
 
-const { DB_HOST, PORT = 3001 } = process.env;
+const { PORT = 3001 } = process.env;
 
 mongoose
-  .connect(DB_HOST, { useNewUrlParser: true })
+  .connect(
+    'mongodb+srv://mmaxsavchuk:HCMb87CvsKDV3vK@cluster0.hymwc.mongodb.net/superheroesdb?retryWrites=true&w=majority',
+    { useNewUrlParser: true },
+  )
   .then(() =>
     app.listen(PORT, () => {
       console.log(`Server running. Use our API on port: ${PORT}`);
