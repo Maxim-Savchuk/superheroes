@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { HeroesList } from './components'
+import { HeroesList, HeroForm } from './components'
 import { getAllHeroes } from './api/heroesApi';
+
+import { Container } from './App.styled';
 
 const App = () => {
   const [superheroes, setSuperheroes] = useState([]);
@@ -10,9 +12,10 @@ const App = () => {
   }, [])
 
   return (
-    <div>
+    <Container>
       <HeroesList items={superheroes} />
-    </div>
+      <HeroForm />
+    </Container>
   );
 };
 
