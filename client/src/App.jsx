@@ -6,14 +6,23 @@ import { Container } from './App.styled';
 
 const App = () => {
   const [superheroes, setSuperheroes] = useState([]);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
-    getAllHeroes().then(res => setSuperheroes(res));
-  })
+    const fetchSuperheroes = async () => {
+      const res = await getAllHeroes(page);
+      setSuperheroes(res);
+    }
+
+    console.log('State update');
+    fetchSuperheroes();
+  }, [page])
+
+  const loadMore = page => setPage(page);
 
   return (
     <Container>
-      <HeroesList items={superheroes} />
+      <HeroesList items={superheroes} OnLoadMoreClick={loadMore} />
       <HeroForm />
     </Container>
   );

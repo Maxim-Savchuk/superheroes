@@ -2,9 +2,9 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://superheroes-proj.herokuapp.com/api';
 
-const getAllHeroes = async () => {
+const getAllHeroes = async (page) => {
   try {
-    const { data } = await axios.get('/superheroes');
+    const { data } = await axios.get(`/superheroes/?page=${page}`);
     return data.data.result;
   } catch (error) {
     console.log(error.message);

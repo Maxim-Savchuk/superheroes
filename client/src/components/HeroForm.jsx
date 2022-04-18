@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createHero } from '../api/heroesApi';
 
-import { Container, Form } from './HeroForm.styled';
+import { Container, Form, Label, Title } from './HeroForm.styled';
 
 const HeroForm = () => {
     const [nickname, setNickname] = useState('');
@@ -58,28 +58,28 @@ const HeroForm = () => {
     //encType='multipart/form-data'
     return (
         <Container>
-            <h1>Add your hero</h1>
+            <Title>Add your hero</Title>
             <Form onSubmit={handleSubmit} >
-                <label >
+                <Label >
                     Nickname:
                     <input onChange={handleChange} value={nickname} name='nickname' type="text" />
-                </label>
-                <label >
+                </Label>
+                <Label >
                     Real name:
                     <input onChange={handleChange} value={real_name} name='realname' type="text" />
-                </label>
-                <label >
+                </Label>
+                <Label >
                     Description:
-                    <input onChange={handleChange} value={origin_description} name='description' type="text" />
-                </label>
-                <label >
+                    <textarea onChange={handleChange} value={origin_description} name='description' type="text" />
+                </Label>
+                <Label >
                     Superpowers:
-                    <input onChange={handleChange} value={superpowers} name='powers' type="text" />
-                </label>
-                <label >
+                    <textarea onChange={handleChange} value={superpowers} name='powers' type="text" />
+                </Label>
+                <Label >
                     Catch phrase:
                     <input onChange={handleChange} value={catch_phrase} name='phrase' type="text" />
-                </label>
+                </Label>
                 {/* Images:
                 <input name="images" type="file" multiple /> */}
                 <button type='submit'>Add superhero</button>
