@@ -9,7 +9,7 @@ const App = () => {
 
   useEffect(() => {
     getAllHeroes().then(res => setSuperheroes(res));
-  }, [])
+  })
 
   return (
     <Container>

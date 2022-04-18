@@ -21,14 +21,6 @@ const superheroSchema = Schema({
     type: String,
     required: true,
   },
-  images: [
-    {
-      image: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
 });
 
 const Superhero = model('superhero', superheroSchema);

@@ -1,10 +1,30 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://superheroes-proj.herokuapp.com/api/superheroes';
+axios.defaults.baseURL = 'https://superheroes-proj.herokuapp.com/api';
 
 const getAllHeroes = async () => {
-  const { data } = await axios.get(BASE_URL);
-  return data.data.result;
+  try {
+    const { data } = await axios.get('/superheroes');
+    return data.data.result;
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
-export { getAllHeroes };
+const createHero = async (hero) => {
+  try {
+    await axios.post('/superheroes', hero);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+const removeHero = async (heroId) => {
+  try {
+    await axios.delete(`/superheroes/${heroId}`);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export { getAllHeroes, createHero, removeHero };
