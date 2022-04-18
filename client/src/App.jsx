@@ -5,24 +5,28 @@ import { getAllHeroes } from './api/heroesApi';
 import { Container } from './App.styled';
 
 const App = () => {
+  const [activePage, setActivePage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0)
   const [superheroes, setSuperheroes] = useState([]);
-  const [page, setPage] = useState(0);
+
+  const pages = new Array(totalPages).fill(null).map((v, i) => i);
 
   useEffect(() => {
     const fetchSuperheroes = async () => {
-      const res = await getAllHeroes(page);
-      setSuperheroes(res);
+      const { pageNumber, heroData } = await getAllHeroes(activePage);
+      setTotalPages(pageNumber)
+      setSuperheroes(heroData);
     }
-
-    console.log('State update');
     fetchSuperheroes();
-  }, [page])
+  }, [activePage])
 
-  const loadMore = page => setPage(page);
+  const setNumberOfPage = page => {
+    setActivePage(page);
+  }
 
   return (
     <Container>
-      <HeroesList items={superheroes} OnLoadMoreClick={loadMore} />
+      <HeroesList items={superheroes} pageCount={pages} onPageClick={setNumberOfPage} />
       <HeroForm />
     </Container>
   );
