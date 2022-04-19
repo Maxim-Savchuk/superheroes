@@ -3,7 +3,6 @@ import { Item, Image, Title } from './HeroCard.styled';
 
 import defaultImage from '../../images/defaultImage.jpg';
 
-
 const HeroCard = ({ item, onHeroRemoveClick }) => {
     const { _id: id, superheroURL, nickname } = item;
     return (

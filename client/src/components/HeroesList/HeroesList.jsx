@@ -2,7 +2,7 @@ import React from 'react';
 import { HeroCard } from '../../components';
 import { removeHero } from '../../services/heroesApi';
 
-import { List, Container } from './HeroesList.styled'
+import { List } from './HeroesList.styled'
 
 const HeroesList = ({ items }) => {
     const onHeroRemoveClick = heroId => {
@@ -10,14 +10,10 @@ const HeroesList = ({ items }) => {
     };
 
     return (
-        <Container>
-            <List>
-                {
-                    items.map((item) =>
-                        <HeroCard key={item._id} item={item} onHeroRemoveClick={onHeroRemoveClick} />)
-                }
-            </List>
-        </Container>
+        <List>
+            {items.map((item) =>
+                <HeroCard key={item._id} item={item} onHeroRemoveClick={onHeroRemoveClick} />)}
+        </List>
     )
 }
 
