@@ -9,12 +9,8 @@ const getAll = async (req, res, next) => {
     .limit(PAGE_SIZE)
     .skip(PAGE_SIZE * page);
   res.json({
-    status: 'success',
-    code: 200,
-    data: {
-      totalPages,
-      result: superheroes,
-    },
+    totalPages,
+    result: superheroes,
   });
 };
 
