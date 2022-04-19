@@ -13,12 +13,13 @@ const App = () => {
           <HomePage />
         </Route>
 
-        <Route path="/hero" exact>
+        <Route path="/superheroes/:superheroId">
           <HeroPage />
         </Route>
       </Switch>
 
-    </Container>)
+    </Container>
+  )
 };
-// /:heroId
+
 export default App;

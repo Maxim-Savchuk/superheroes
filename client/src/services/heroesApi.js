@@ -11,6 +11,15 @@ const getAllHeroes = async (page) => {
   }
 };
 
+const getHero = async (heroId) => {
+  try {
+    const { data } = await axios.get(`/superheroes/${heroId}`);
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 const createHero = async (hero) => {
   try {
     const { data } = await axios.post('/superheroes', hero);
@@ -29,4 +38,4 @@ const removeHero = async (heroId) => {
   }
 };
 
-export { getAllHeroes, createHero, removeHero };
+export { getAllHeroes, createHero, removeHero, getHero };

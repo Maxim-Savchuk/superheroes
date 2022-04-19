@@ -6,13 +6,14 @@ import { List } from './HeroesList.styled'
 
 const HeroesList = ({ items }) => {
     const onHeroRemoveClick = heroId => {
-        removeHero(heroId)
+        removeHero(heroId);
     };
 
     return (
         <List>
             {items.map((item) =>
-                <HeroCard key={item._id} item={item} onHeroRemoveClick={onHeroRemoveClick} />)}
+                <HeroCard key={item._id} item={item} onHeroRemoveClick={onHeroRemoveClick} />
+            )}
         </List>
     )
 }
