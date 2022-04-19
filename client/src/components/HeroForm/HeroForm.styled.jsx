@@ -9,7 +9,7 @@ export const Container = styled.div`
     height: 100vh;
     width: 400px;
     padding: 30px 40px;
-    background-color: #fff;
+    background-color: transparent;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
   1px 4px 6px rgba(0, 0, 0, 0.16);
 `;
@@ -21,6 +21,7 @@ export const Form = styled.form`
 
 export const Title = styled.h1`
     margin-bottom: 30px;
+    color: green;
 `;
 
 export const Label = styled.label`

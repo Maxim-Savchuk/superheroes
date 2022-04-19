@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: rgb(239, 228, 250);
 }
 
 ul {
@@ -30,10 +31,26 @@ h3 {
 }
 
 button {
+  font-size: 18px;
+  border: 2px solid green;
+  color: grey;
+  background-color: transparent;
   cursor: pointer;
+}
+
+button:hover {
+  border: 2px solid green;
+  color: #fff;
+  background-color: green;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+input,
+textarea {
+  outline: none;
+  border: none;
 }

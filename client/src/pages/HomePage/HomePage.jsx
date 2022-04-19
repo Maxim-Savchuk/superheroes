@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
 import { HeroesList, HeroForm } from '../../components'
 import { getAllHeroes } from '../../services/heroesApi';
 
@@ -16,8 +17,12 @@ const HomePage = () => {
         setIsLoading(true);
         getAllHeroes(activePage)
             .then(({ result, totalPages }) => {
-                setTotalPages(totalPages);
-                setSuperheroes(result);
+                flushSync(() => {
+                    setTotalPages(totalPages);
+                })
+                flushSync(() => {
+                    setSuperheroes(result);
+                })
             })
             .finally(() => {
                 setIsLoading(false);

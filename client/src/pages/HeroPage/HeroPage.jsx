@@ -5,7 +5,7 @@ import { getHero } from '../../services/heroesApi';
 
 const HeroPage = () => {
     const { superheroId } = useParams();
-    const [superhero, setSuperhero] = useState(() => null);
+    const [superhero, setSuperhero] = useState([]);
     const [isLoading, setIsloading] = useState(false)
     const history = useHistory();
     const location = useLocation();
@@ -13,7 +13,9 @@ const HeroPage = () => {
     useEffect(() => {
         setIsloading(true);
         getHero(superheroId)
-            .then(({ result }) => setSuperhero(result))
+            .then(({ result }) =>
+                setSuperhero(result)
+            )
             .finally(() => setIsloading(false));
     }, [superheroId]);
 

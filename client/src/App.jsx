@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router';
 import { HomePage, HeroPage } from './pages';
 
@@ -8,15 +8,17 @@ const App = () => {
   return (
     <Container>
 
-      <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
+      <Suspense fallback={null}>
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
 
-        <Route path="/superheroes/:superheroId">
-          <HeroPage />
-        </Route>
-      </Switch>
+          <Route path="/:superheroId">
+            <HeroPage />
+          </Route>
+        </Switch>
+      </Suspense>
 
     </Container>
   )
