@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createHero } from '../api/heroesApi';
+import { createHero } from '../../services/heroesApi';
 
 import { Container, Form, Label, Title } from './HeroForm.styled';
 
@@ -39,11 +39,6 @@ const HeroForm = () => {
 
         const hero = { nickname, real_name, origin_description, superpowers, catch_phrase };
         createHero(hero);
-
-        // const images = [...e.target[5].files];
-        // console.log(images);
-        // const data = new FormData();
-        // data.append("images", images);
 
         resetForm();
     }
